@@ -34,6 +34,7 @@ settings = {
 handlers = [
 	(r"/", HelloWorldHandler),
 	(r"/static/(.*)", tornado.web.StaticFileHandler, {"path": "static"}),
+	(r"/(favicon.ico)", tornado.web.StaticFileHandler, {"path": "static"})
 ]
 app = tornado.web.Application(handlers, **settings)
 app.listen(4455)
