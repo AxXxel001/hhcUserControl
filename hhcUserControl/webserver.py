@@ -20,15 +20,11 @@ renderer = Renderer(
 
 class HelloWorldHandler(tornado.web.RequestHandler):
 	def get(self):
-		name = self.get_argument("name")
-		city = self.get_argument("city")
-
-		if name==None or city==None:
-			self.error()
-			return
-
-		data = {"name": name, "city": city}
-		data["css_path"] = "static/style.css"
+		data = {}
+		data["css_main"] = "main.css"
+		data["css_navbar"] = "navbar.css"
+		data["css_content"] = "content.css"
+		data["css_footer"] = "footer.css"
 		html = renderer.render_name("main", data)
 		self.write(html)
 
