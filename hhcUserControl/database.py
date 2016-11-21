@@ -36,7 +36,7 @@ class Database(object):
 
 		self.cursor.execute(
 			"""CREATE TABLE IF NOT EXISTS `address` (
-				`id` int(11) PRIMARY KEY AUTOINCREMENT,
+				`id` INTEGER PRIMARY KEY AUTOINCREMENT,
 				`contact_id` INTEGER REFERENCES contact(id),
 				`description` TEXT,
 				`street` TEXT,
@@ -69,7 +69,8 @@ class Database(object):
 				`left` DATE
 		)""")
 
-
+	def commit(self):
+		return self.database.commit()
 
 
 if __name__ == "__main__":
