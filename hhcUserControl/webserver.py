@@ -33,8 +33,8 @@ settings = {
 }
 handlers = [
 	(r"/", HelloWorldHandler),
-	(r"/static/(.*)", tornado.web.StaticFileHandler, {"path": "static"}),
-	(r"/(favicon.ico)", tornado.web.StaticFileHandler, {"path": "static"})
+	(r"/static/(.*\.css)", tornado.web.StaticFileHandler, {"path": "style"}),
+	(r"/(favicon.ico)", tornado.web.StaticFileHandler, {"path": "img/favicon"})
 ]
 app = tornado.web.Application(handlers, **settings)
 app.listen(4455)
